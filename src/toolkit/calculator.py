@@ -48,15 +48,6 @@ class calculator:
 
             # Обработка скобок
             if i in "()":
-
-                # Проверка расположения открывающей скобки
-                if i == "(" and (
-                    current
-                    or (result and result[-1] == ")")
-                ):
-                    raise calculation_error("Incorrect expression")
-
-                # Сначала сохраняем текущее число
                 if current:
                     if len(current) > 1 and current[0] == "0":
                         raise calculation_error("Incorrect expression")
@@ -64,11 +55,14 @@ class calculator:
                     result.append(current)
                     current = ""
 
-                # Проверка расположения закрывающей скобки
-                if i == ")" and (
-                    not result
-                    or result[-1] in "(+-*/$"
-                ):
+                if i == "(":
+                    if result and result[-1] == ")":
+                        raise calculation_error("Incorrect expression")
+
+                    if result and result[-1] not in "(+-*/$":
+                        raise calculation_error("Incorrect expression")
+
+                if i == ")" and (not result or result[-1] in "(+-*/$"):
                     raise calculation_error("Incorrect expression")
 
                 result.append(i)
