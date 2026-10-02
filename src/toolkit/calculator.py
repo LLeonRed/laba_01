@@ -1,4 +1,4 @@
-from errors import calculation_error
+from .errors import calculation_error
 
 
 class calculator:
