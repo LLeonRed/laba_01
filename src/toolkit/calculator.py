@@ -1,4 +1,4 @@
-from .errors import calculation_error
+from errors import calculation_error
 
 
 class calculator:
@@ -109,14 +109,11 @@ class calculator:
         expression = [i if i != "$" else "//" for i in expression]
 
         order = {
-            "(": 0,
-            ")": 0,
             "+": 1,
             "-": 1,
             "*": 2,
             "/": 2,
             "//": 2,
-            "^": 3
         }
 
         result = []
