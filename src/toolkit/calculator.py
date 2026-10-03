@@ -45,11 +45,13 @@ class calculator:
             # Проверка допустимых символов
             if i not in "0123456789+-*/().$":
                 raise calculation_error("Unknown symbol")
-
+                
+            if current.count('.')>1:
+                    raise calculation_error("Incorrect expression")
             # Обработка скобок
             if i in "()":
                 if current:
-                    if len(current) > 1 and current[0] == "0":
+                    if len(current) > 1 and (current[0] == "0" and '.' not in current or '00.'in current):
                         raise calculation_error("Incorrect expression")
 
                     result.append(current)
