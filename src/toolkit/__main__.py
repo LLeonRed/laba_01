@@ -59,10 +59,10 @@ args = parse.parse_args()
 
 
 if args.command == "calc":
-    print(int(calculator.evaluate(args.expression)))
+    print(float(calculator.evaluate(args.expression)))
 
 elif args.command == "convert":
-    print(int(converter.verification(args.value, args.from_unit, args.to_unit)))
+    print(float(converter.verification(args.value, args.from_unit, args.to_unit)))
 
 else:
     print("Unknown command")
