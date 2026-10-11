@@ -6,7 +6,7 @@ authors = ["Герасимов Леонид"]
 packages = [{ include = "toolkit", from = "src" }]
 
 [tool.poetry.dependencies]
-python = "~3.12"
+python = "~3.14"
 
 pydantic = "^2.12.5"
 pytest = "^8.3.5"

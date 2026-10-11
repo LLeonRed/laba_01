@@ -52,20 +52,20 @@ class calculator:
             if i in "()":
                 if current:
                     if len(current) > 1 and (current[0] == "0" and '.' not in current or '00.'in current):
-                        raise calculation_error("Incorrect expression")
+                        raise calculation_error("Incorrect expression1")
 
                     result.append(current)
                     current = ""
 
                 if i == "(":
                     if result and result[-1] == ")":
-                        raise calculation_error("Incorrect expression")
+                        raise calculation_error("Incorrect expression2")
 
                     if result and result[-1] not in "(+-*/$":
-                        raise calculation_error("Incorrect expression")
+                        raise calculation_error("Incorrect expression3")
 
                 if i == ")" and (not result or result[-1] in "(+-*/$"):
-                    raise calculation_error("Incorrect expression")
+                    raise calculation_error("Incorrect expression4")
 
                 result.append(i)
 
@@ -82,7 +82,7 @@ class calculator:
                     if current[0] in "+-" and current[-1] in "+-*/":
 
                         if len(current[:-1]) > 1 and current[:-1][0] == "0":
-                            raise calculation_error("Incorrect expression")
+                            raise calculation_error("Incorrect expression5")
 
                         result.append(current[:-1])
                         current = current[-1]
@@ -97,8 +97,8 @@ class calculator:
                     # Отделение оператора от конца элемента
                     elif current[-1] in "+-*/$":
 
-                        if len(current[:-1]) > 1 and current[:-1][0] == "0":
-                            raise calculation_error("Incorrect expression")
+                        if len(current[:-1]) > 1 and current[:-1][0] == "0" and "0." not in current[:-1]:
+                            raise calculation_error("Incorrect expression6")
 
                         result.append(current[:-1])
                         current = current[-1]

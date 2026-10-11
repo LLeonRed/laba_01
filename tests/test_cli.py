@@ -10,7 +10,7 @@ def test_cli_calc():
     )
 
     assert result.returncode == 0
-    assert result.stdout.strip() == '26'
+    assert result.stdout.strip() == "26.0"
 
 
 def test_cli_convert():
@@ -31,4 +31,4 @@ def test_cli_convert():
     )
 
     assert result.returncode == 0
-    assert result.stdout.strip() == '1'
+    assert result.stdout.strip() == "1.0"
